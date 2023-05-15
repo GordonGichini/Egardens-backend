@@ -1,16 +1,6 @@
-require_relative './config/environment.rb'
+# This file is used by Rack-based servers to start the application.
 
-#added comments
+require_relative "config/environment"
 
-#COR bypass
-use Rack::Cors do
-    allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
-    end
-end
-
-use Rack::JSONBodyParser
-
-# use your controllers here. The last controller in 'run'
-run BuyersController
+run Rails.application
+Rails.application.load_server
